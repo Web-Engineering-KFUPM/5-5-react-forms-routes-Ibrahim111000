@@ -59,6 +59,12 @@
 //
 // NOTE:
 // - Don’t change any CSS.
+
+import { Routes, Route, NavLink } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Registration from "./pages/Registration";
+
 //
 // ================================================================
 // TODO #2: Use Registeration.jsx file.
@@ -151,12 +157,19 @@ export default function App() {
       <nav className="navbar">
         <div className="brand">🧑‍💻 Student Portal</div>
         <div className="links">
-          {/*Nav links*/}
+          <NavLink to="/" end className="navlink">Home</NavLink>
+          <NavLink to="/about" end className="navlink">About</NavLink>
+          <NavLink to="/registration" end className="navlink">Registration</NavLink>
         </div>
       </nav>
 
       <main className="container">
-        {/*Routes*/}
+        {<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/registration" element={<Registration />} />
+  <Route path="*" element={<h2>404 — Not Found</h2>} />
+</Routes>}
       </main>
 
       <footer className="footer">
